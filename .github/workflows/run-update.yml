@@ -45,6 +45,5 @@ jobs:
           echo "No hay cambios para hacer commit."
         else
           git commit -m "🔄 Actualización diaria automática de test.csv y README"
-          git push
+          git push https://x-access-token:${{ secrets.ICEN_TOKEN }}@github.com/1nfinit0/incenUpdate2Gee.git
         fi
-
