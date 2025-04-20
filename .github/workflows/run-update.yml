@@ -10,40 +10,40 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Clonar el repositorio
-      uses: actions/checkout@v4
-      with:
-        persist-credentials: true
+      - name: Clonar el repositorio
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.ICEN_TOKEN }}
 
-    - name: Configurar Python
-      uses: actions/setup-python@v5
-      with:
-        python-version: '3.10'
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
 
-    - name: Instalar dependencias
-      run: pip install -r requirements.txt
+      - name: Instalar dependencias
+        run: pip install -r requirements.txt
 
-    - name: Crear archivo de clave desde secreto
-      run: |
-        echo "${{ secrets.GEE_SERVICE_KEY }}" | base64 -d > key.json
+      - name: Crear archivo de clave desde secreto
+        run: |
+          echo "${{ secrets.GEE_SERVICE_KEY }}" | base64 -d > key.json
 
-    - name: Ejecutar script principal
-      run: python update.py
+      - name: Ejecutar script principal
+        run: python update.py
 
-    - name: Actualizar README con tabla y fecha
-      run: python actualiza_readme.py
+      - name: Actualizar README con tabla y fecha
+        run: python actualiza_readme.py
 
-    - name: Configurar Git
-      run: |
-        git config --global user.name "github-actions[bot]"
-        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+      - name: Configurar Git
+        run: |
+          git config --global user.name "1nfinit0"
+          git config --global user.email "noggnzzz@gmail.com"
 
-    - name: Hacer commit y push si hay cambios
-      run: |
-        git add test.csv README.md
-        if git diff --cached --quiet; then
-          echo "No hay cambios para hacer commit."
-        else
-          git commit -m "🔄 Actualización diaria automática de test.csv y README"
-          git push https://x-access-token:${{ secrets.ICEN_TOKEN }}@github.com/1nfinit0/incenUpdate2Gee.git
-        fi
+      - name: Hacer commit y push si hay cambios
+        run: |
+          git pull --rebase origin master
+          git add test.csv README.md
+          if git diff --cached --quiet; then
+            echo "No hay cambios para hacer commit."
+          else
+            git commit -m "🔄 Actualización diaria automática de test.csv y README"
+            git push origin master
