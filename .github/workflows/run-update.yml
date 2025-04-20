@@ -49,3 +49,4 @@ jobs:
           else
             git commit -m "🔄 Actualización diaria automática de test.csv y README"
             git push origin master
+          fi
