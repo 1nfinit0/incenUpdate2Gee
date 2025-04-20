@@ -1,4 +1,4 @@
-import pandas as pd
+import pandas as pd # type: ignore
 from datetime import datetime
 
 # Leer CSV
@@ -10,7 +10,8 @@ ultimos = df.tail(12)
 # Construir tabla Markdown
 tabla_md = "| Año | Mes | ICEN |\n|-----|-----|------|\n"
 for _, row in ultimos.iterrows():
-    tabla_md += f"| {row['yy']} | {row['mm']:02d} | {row['icen']:.2f} |\n"
+    tabla_md += f"| {row['yy']} | {int(row['mm']):02d} | {row['icen']:.2f} |\n"
+
 
 # Fecha actual
 fecha = datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC")
