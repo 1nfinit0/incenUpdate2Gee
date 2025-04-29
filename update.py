@@ -1,6 +1,7 @@
 import pandas as pd
 import requests
 import ee
+import time
 from pathlib import Path
 
 # Configuración de la cuenta de servicio
@@ -53,5 +54,17 @@ def descargar_y_guardar_csv():
     )
     task.start()
     print("🚀 Tarea de exportación iniciada.")
+    
+    # Espera a que la tarea termine (opcional, pero recomendado)
+    while task.status()['state'] in ['READY', 'RUNNING']:
+        time.sleep(10)
+    print(f"✅ Tarea finalizada con estado: {task.status()}")
+
+    # Establecer permisos públicos (Anyone can read)
+    try:
+        ee.data.setAssetAcl(ASSET_ID, {'all_users_can_read': True})
+        print("🔓 Permisos actualizados: 'Anyone can read' activado.")
+    except Exception as e:
+        print(f"❌ Error al actualizar permisos: {e}")
 
 descargar_y_guardar_csv()
