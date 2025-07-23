@@ -12,21 +12,17 @@ tabla_md = "| Año | Mes | ICEN |\n|-----|-----|------|\n"
 for _, row in ultimos.iterrows():
     tabla_md += f"| {row['yy']} | {int(row['mm']):02d} | {row['icen']:.2f} |\n"
 
-
 # Fecha actual
 fecha = datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC")
 
-# Leer README y reemplazar marcador
-with open("README.md", "r") as f:
-    contenido = f.read()
+# Crear nuevo contenido completo del README
+nuevo_contenido = f"""<!--TABLA_ICEN-->
 
-# Reemplazar tabla
-nuevo_contenido = contenido.split("<!--TABLA_ICEN-->")[0] + \
-    f"<!--TABLA_ICEN-->\n\n{tabla_md}\n\n" + \
-    contenido.split("<!--TABLA_ICEN-->")[1].split("<!--ACTUALIZACION_ICEN-->")[0] + \
-    f"<!--ACTUALIZACION_ICEN--> {fecha}"
+{tabla_md}
 
-# Guardar README actualizado
+<!--ACTUALIZACION_ICEN--> {fecha}
+"""
+
+# Guardar README completamente nuevo
 with open("README.md", "w") as f:
     f.write(nuevo_contenido)
-
