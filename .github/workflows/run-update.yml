@@ -35,15 +35,22 @@ jobs:
         run: |
           echo "${{ secrets.GEE_SERVICE_KEY }}" | base64 -d > key.json
 
+      - name: Crear archivo de clave desde secreto
+        run: |
+          echo "${{ secrets.GEE_SERVICE_UTP_KEY }}" | base64 -d > key_utp.json
+
       - name: Ejecutar script principal
         run: python update.py
+
+      - name: Ejecutar script secundario UTP
+        run: python updateutp.py
 
       - name: Actualizar README con tabla y fecha
         run: python actualiza_readme.py
 
       - name: Hacer commit y push si hay cambios
         run: |
-          git add test.csv README.md
+          git add .
           if git diff --cached --quiet; then
             echo "No hay cambios para hacer commit."
           else
