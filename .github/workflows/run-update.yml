@@ -55,7 +55,7 @@ jobs:
 
       - name: Hacer commit y push si hay cambios
         run: |
-          git add .
+          git add icen.csv test.csv README.md
           if git diff --cached --quiet; then
             echo "No hay cambios para hacer commit."
           else
