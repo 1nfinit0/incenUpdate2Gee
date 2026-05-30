@@ -37,7 +37,7 @@ jobs:
 
       - name: Crear archivo de clave desde secreto
         run: |
-          echo "${{ secrets.GEE_SERVICE_UTP_KEY }}" | base64 -d > key_utp.json
+          echo "${{ secrets.GEE_SERVICE_UTP_KEY }}" > key_utp.json
 
       - name: Ejecutar script principal
         run: python update.py
