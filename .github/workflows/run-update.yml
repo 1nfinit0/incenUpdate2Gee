@@ -37,7 +37,12 @@ jobs:
 
       - name: Crear archivo de clave desde secreto
         run: |
-          echo "${{ secrets.GEE_SERVICE_UTP_KEY }}" > key_utp.json
+          cat << 'EOF' > key_utp.json
+          ${{ secrets.GEE_SERVICE_UTP_KEY }}
+          EOF
+
+      - name: Verificar key_utp.json
+        run: python3 -c "import json; json.load(open('key_utp.json')); print('JSON válido')"
 
       - name: Ejecutar script principal
         run: python update.py
