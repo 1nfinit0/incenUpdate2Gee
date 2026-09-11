@@ -1,0 +1,110 @@
+\documentclass[11pt]{article}
+
+%===============================
+%
+%          📦 Paquetes
+%
+%===============================
+
+% === Configuración del documento y tipografía ===
+\usepackage[a4paper, top=2.5cm, bottom=2.5cm, left=3cm, right=3cm]{geometry}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{eulervm}
+\usepackage{microtype}
+\usepackage{xurl}
+
+% === Gráficos y representaciones visuales ===
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{graphicx}
+\usepackage{subcaption}
+
+% === Estilo y personalización ===
+\usepackage{titling}
+\usepackage{titlesec}
+\usepackage{tocloft}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage{caption}
+
+% === Matemáticas y símbolos ===
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{cancel}
+
+% === Estructura y disposición del contenido ===
+\usepackage{array}
+\usepackage{multicol}
+\usepackage{float}
+\usepackage{indentfirst}
+\usepackage{enumitem}
+
+% === Hipervínculos y referencias ===
+\usepackage{tocbibind}
+\usepackage[colorlinks=true, linkcolor=black]{hyperref}
+
+%===============================
+%
+%          ⬆️⬇️ Cabeceras
+%
+%===============================
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\textit{Geotón 2026}}
+\fancyfoot[R]{\thepage}
+\setlength{\headheight}{14pt}
+\addtolength{\topmargin}{-2pt}
+
+%======================================
+%
+%          📑 Espaciado de Párrafos
+%
+%======================================
+
+\setlength{\parskip}{0em}
+\setlength{\parindent}{0em}
+
+\titlespacing*{\section}
+  {0pt}{1em}{0.4em}
+\titlespacing*{\subsection}
+  {0pt}{0.8em}{0.3em}
+
+\titleformat{\section}
+  {\normalsize\bfseries}{\thesection}{1em}{}
+
+\titleformat{\subsection}
+  {\small\bfseries}{\thesubsection}{1em}{}
+%======================================
+%
+%          📕 Estructura del título
+%
+%======================================
+\title{
+  \vspace{-3em}
+  {\Large \textbf{Monitoreo de la vulnerabilidad agrícola ante anomalías de la temperatura superficial del mar en la zona 1+2 ENSO: Aplicación en Google Earth Engine integrando clasificación por aprendizaje automático e ingesta automatizada de datos de fuentes externas}}\\[0.4em]
+}
+\author{
+  Huatay Salcedo, Luis Elías \quad \texttt{hsluis4326@gmail.com}\\
+  ORCID: \texttt{0009-0006-2004-4918}
+}
+
+\begin{document}
+\date{}
+
+%======================================
+%
+%          📚 Inicio del documento
+%
+%======================================
+
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\maketitle
+\thispagestyle{empty}
+
+\input{components/introduccion/introduccion}
+\end{document}
