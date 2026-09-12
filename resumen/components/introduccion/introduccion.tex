@@ -177,7 +177,7 @@
 
         \section{Funcionalidades}
 
-          Para un usuario final la aplicación ofrece una interfaz interactiva que permite seleccionar el área de interés para conocer la tendencia actual de la anomalía de la temperatura superficial del mar y como históricamente tal área a respondido a estas anomalías a través del índice NDVI.
+          Para un usuario final, la aplicación ofrece una interfaz interactiva que permite seleccionar el área de interés para conocer la tendencia actual de la anomalía de la temperatura superficial del mar y como históricamente tal área a respondido a estas anomalías a través del índice NDVI.
 
           \subsection{Descripción}
 
@@ -191,22 +191,21 @@
 
           \subsection{Selección de área de interés}
 
-            Se contruyó un panel de selección de área de interés que lista mediante un formulario desplegable entidades geográficas asociadas al orden político-adminitrativo a nivel de distritos y un mes de análisis permitiendo capturar los parámentros necesarios para el cálculo del producto de monitoreo.
+            Se construyó un panel de selección de área de interés que lista mediante un formulario desplegable entidades geográficas asociadas al orden político-administrativo a nivel de distritos y un mes de análisis permitiendo capturar los parámetros necesarios para el cálculo del producto de monitoreo.
 
             \begin{figure}[H]
               \centering
               \includegraphics[width=0.45\textwidth]{assets/gee/form.png}
-              \caption{Formulario de selección de área de intrés y mes de análisis.}
+              \caption{Formulario de selección de área de interés y mes de análisis.}
             \end{figure}
 
           \section{Impacto}
 
-            La aplicación desarrollada ofrece un marco replicable para el monitoreo climático-agrícola en entornos costeros con limitaciones en datos de campo y recursos computacionales. Al integrar datos de anomalías de TSM
-            de distintas fuentes con la dinámica de la cobertura agrícola en demanda del ususario, se proporciona una herramienta valiosa para agricultores, investigadores y tomadores de decisiones que buscan comprender mejor la relación entre el clima y la agricultura en la costa peruana. Además, la automatización de la ingesta de datos externos garantiza que la aplicación se mantenga actualizada mejorando su utilidad a futuro.
+            La aplicación desarrollada ofrece un marco replicable para el monitoreo climático-agrícola en entornos costeros con limitaciones en datos de campo y recursos computacionales. Al integrar datos de anomalías de TSM de distintas fuentes con la dinámica de la cobertura agrícola en demanda del usuario, se proporciona una herramienta valiosa para agricultores, investigadores y tomadores de decisiones que buscan comprender mejor la relación entre el clima y la agricultura en la costa peruana. Además, la automatización de la ingesta de datos externos garantiza que la aplicación se mantenga actualizada mejorando su utilidad a futuro.
 
           \section{Limitaciones y futuras mejoras}
 
-            La geneación de etiquetas de entrenamiento a partir de imágenes satelitales puede introducir un "sesgo geográfico" que puede limitar la clasificación a áreas con caracteríticas similares como altitud, tipo de cultivo, entre otros. Para evitar esto es posible diverisificar las etiquetas de muestra generadas de manera que cubran una mayor variedad de estas características.
+            La generación de etiquetas de entrenamiento a partir de imágenes satelitales puede introducir un "sesgo geográfico "que puede limitar la clasificación a áreas con características similares como altitud, tipo de cultivo, entre otros. Para evitar esto es posible diversificar las etiquetas de muestra generadas de manera que cubran una mayor variedad de estas características.
 
             Por otro lado, al relacionarla con las anomalías de la temperatura superficial del mar (TSM) en la zona 1+2 ENSO el aprovechamiento de esta información se limita a las zonas costeras donde mayor es la influencia de estas anomalías, para mejorar esto es posible integrar otros productos como índices de humedad, índices de estrés hídrico, etc, que permitan ofrecer un análisis más completo de la relación entre el clima y la agricultura en distintas zonas del país.
 
